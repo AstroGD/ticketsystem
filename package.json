@@ -1,0 +1,17 @@
+{
+  "name": "ticketsystem",
+  "version": "1.0.0",
+  "description": "Ticketsystem Discord Bot - Extracted from Stammtisch Bot V2 by AstroGD",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./failsafe.js"
+  },
+  "author": "Lukas AstroGD (https://www.astrogd.eu)",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "fs-extra": "^6.0.1",
+    "request": "^2.87.0"
+  }
+}
