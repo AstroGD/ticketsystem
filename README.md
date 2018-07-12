@@ -3,4 +3,4 @@ A ticket system for Discord to reach the users questions more easily and never l
 
 Simply edit command names and language via language and config files.
 
-If you have any question feel free to contact me via mail to lukas@astrogd.eu or send a dm to AstroGD#3416
+If you have any question feel free to contact me via mail to support@astrogd.eu or send a dm to AstroGD#3416
