@@ -10,8 +10,8 @@
   "author": "Lukas AstroGD (https://www.astrogd.eu)",
   "license": "AGPL-3.0",
   "dependencies": {
-    "discord.js": "^11.3.2",
+    "discord.js": "^11.4.2",
     "fs-extra": "^6.0.1",
-    "request": "^2.87.0"
+    "request": "^2.88.0"
   }
 }
