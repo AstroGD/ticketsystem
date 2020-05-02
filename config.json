@@ -1,9 +1,10 @@
 {
-    "token": "Discord Application Token here",
-    "server_id": "Id of the server where the ticketsystem should listen to",
+    "token": "ENTER YOUR DISCORD APPLICATION TOKEN HERE",
+    "server_id": "ENTER YOUR SERVER-ID HERE",
     "prefix": "/",
-    "ticket_notification_channel_id": "Channel id for ticket notifications",
-    "team_role_id": "Role id of the Role authorized to access moderative commands",
+    "ticket_notification_channel_id": "ENTER THE CHANNELID WHERE TICKET NOTIFICATIONS SHOULD BE POSTED HERE",
+    "team_role_id": "ENTER THE ID OF YOUR TEAMS ROLE HERE",
     "errorOnCommandNotFound": true,
-    "language": "en_EN"
+    "language": "en_EN",
+    "custom_status": null
 }

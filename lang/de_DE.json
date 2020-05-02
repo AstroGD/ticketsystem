@@ -97,8 +97,10 @@
         "for_staff_members": "Für Teammitglieder",
         "reopens_a_ticket": "Öffnet ein Ticket erneut",
         "shows_a_list_of_all_open_tickets": "Zeigt eine Liste aller offenen Tickets",
-        "shows_a_list_of_tickets_created_by_a_specific_user": "Zeigt eine Liste mit TIckets, welche von einem bestimmten Nutzer erstellt wurden",
+        "shows_a_list_of_tickets_created_by_a_specific_user": "Zeigt eine Liste mit Tickets, welche von einem bestimmten Nutzer erstellt wurden",
         "ticket_system": "Ticketsystem",
-        "this_command_does_not_exist_please_use_the_help_command_to_get_a_list_of_all_commands": "Dieser Befehl existiert leider nicht. Bitte nutze den Hilfe Befehl, um eine Liste aller Befehle zu erhalten."
+        "this_command_does_not_exist_please_use_the_help_command_to_get_a_list_of_all_commands": "Dieser Befehl existiert leider nicht. Bitte nutze den Hilfe Befehl, um eine Liste aller Befehle zu erhalten.",
+        "this_bot_is_not_usable_via_dm": "Dieser Bot ist nicht über die Direktnachrichten nutzbar.",
+        "please_enter_your_command_on_our_server": "Bitte gib deinen Befehl auf unserem Server ein."
     }
 }
