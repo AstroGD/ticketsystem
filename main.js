@@ -1,7 +1,7 @@
 /**
  * Ticketsystem by AstroGD
  * @author AstroGD (https://www.astrogd.eu)
- * @version 2.0.0
+ * @version 2.0.1
  * @since 15. Mai 2018
  * @link https://www.astrogd.eu
  * @license AGPL-3.0
