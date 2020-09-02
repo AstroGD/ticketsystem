@@ -1,5 +1,5 @@
 {
-    "token": "ENTER YOUR DISCORD APPLICATION TOKEN HERE",
+    "token": "ENTER YOUR DISCORD BOT TOKEN HERE",
     "server_id": "ENTER YOUR SERVER-ID HERE",
     "prefix": "/",
     "ticket_notification_channel_id": "ENTER THE CHANNELID WHERE TICKET NOTIFICATIONS SHOULD BE POSTED HERE",
