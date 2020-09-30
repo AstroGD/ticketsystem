@@ -1,7 +1,7 @@
 /**
  * Ticketsystem by AstroGD
  * @author AstroGD (https://www.astrogd.eu)
- * @version 2.0.1
+ * @version 2.0.3
  * @since 15. Mai 2018
  * @link https://www.astrogd.eu
  * @license AGPL-3.0
@@ -72,20 +72,20 @@ async function checkVersion() {
             'maxRedirects': 20
         });
     } catch (error) {
-        return log(`Version couldn't be checked! Make sure to allow network access to software.astrogd.eu`, 1);
+        return log(`\x1b[31mVersion couldn't be checked! Make sure to allow network access to software.astrogd.eu\x1b[0m`, 1);
     }
 
-    if (!versionInfo) return log(`Version couldn't be checked! Make sure to allow network access to software.astrogd.eu`, 1);
+    if (!versionInfo) return log(`\x1b[31mVersion couldn't be checked! Make sure to allow network access to software.astrogd.eu\x1b[0m`, 1);
     versionInfo = JSON.parse(versionInfo.toString());
 
     const version = pk.version.split(".");
     const latest = versionInfo.version.split(".");
 
     if (version[0] < latest[0] || version[0] == latest[0] && version[1] < latest[1] || version[0] == latest[0] && version[1] == latest[1] && version[2] < latest[2]) {
-        return log(`A new version of the ticketsystem is available (${pk.version} --> ${versionInfo.version}). Make sure to visit ${versionInfo.url} and download the newest version. If you need help look in the repositorys wiki under "how to update" or contact AstroGD (https://www.astrogd.eu/en/kontakt)`, 2);
+        return log(`\x1b[31mA new version of the ticketsystem is available (${pk.version} --> ${versionInfo.version}). Make sure to visit ${versionInfo.url} and download the newest version. If you need help look in the repositorys wiki under "how to update" or contact AstroGD (https://www.astrogd.eu/en/kontakt)\x1b[0m`, 2);
     }
 
-    log(`Newest version installed!`, 3);
+    log(`\x1b[32mNewest version installed!\x1b[0m`, 3);
 };
 
 //Additional Code

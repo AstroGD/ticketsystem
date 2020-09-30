@@ -428,7 +428,7 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                     .catch(e => {
                         log(`An error occurred while sending a messagee to ${message.author.tag}: ${e.stack}`, 2);
                     });
-                var teamchannel = client.guilds.cache.cache.get(config.server_id).channels.cache.get(config.ticket_notification_channel_id);
+                var teamchannel = client.guilds.cache.get(config.server_id).channels.cache.get(config.ticket_notification_channel_id);
                 if (!teamchannel) {
                     return;
                 }

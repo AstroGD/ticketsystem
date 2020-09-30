@@ -1,10 +1,10 @@
 module.exports = function (log, makeEmbed, language, config, languageconfig, client) {
     const fs = require("fs-extra");
     const path = require("path");
-    return async function (message) {        
+    return async function (message) {
         var guild = message.guild;
         var role = guild.roles.cache.get(config.team_role_id);
-    
+
         if (!role) {
             log(`Teamroleid invalid. Please check the config.json`, 1);
             message.channel.send("", {
@@ -14,24 +14,48 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                     log(`An error occured while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                 })
                 .then(msg => {
-                    msg.delete({timeout:10000}).catch(e => {});
+                    msg.delete({
+                        timeout: 10000
+                    }).catch(e => {});
                 });
             return;
         }
-    
-        if (!message.member.roles.cache.get(role.id) && message.author.id != oid && message.author.id != "143006052517019659") {
+
+        if (!message.member.roles.cache.get(role.id)) {
             message.channel.send("", {
-                    embed: makeEmbed(message, "#00FF21", `❗ ${language.oops}`, language.you_do_not_have_the_required_authorization_to_use_this_command)
+                    embed: makeEmbed(message, "#FF0000", `❗ ${language.oops}`, language.you_do_not_have_the_required_authorization_to_use_this_command)
                 })
                 .catch(e => {
                     log(`An error occured while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                 })
                 .then(msg => {
-                    msg.delete({timeout:10000}).catch(e => {});
+                    msg.delete({
+                        timeout: 10000
+                    }).catch(e => {});
                 });
             return;
         }
-    
+
+        if (!message.content.split(" ")[1]) {
+            message.channel.send("", {
+                    embed: makeEmbed(message, "#FF0000", `❗ ${language.oops}`, language.please_enter_an_action, [{
+                        title: language.you_have_the_following_options,
+                        value: `${languageconfig.ticketteamcommand.info}, ${languageconfig.ticketteamcommand.answer}, ${languageconfig.ticketteamcommand.close}, ${languageconfig.ticketteamcommand.reopen}, ${languageconfig.ticketteamcommand.list}, ${languageconfig.ticketteamcommand.user}`
+                    }])
+                })
+                .catch(e => {
+                    log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
+                    return;
+                })
+                .then(msg => {
+                    msg.delete({
+                            timeout: 10000
+                        })
+                        .catch(e => {});
+                });
+            return;
+        }
+
         switch (message.content.split(" ")[1].toLowerCase()) {
             case languageconfig.ticketteamcommand.info.toLowerCase():
                 if (!message.content.split(" ").slice(1).slice(1).join(" ")) {
@@ -45,7 +69,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -65,7 +91,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -129,7 +157,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -144,7 +174,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -157,7 +189,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -177,7 +211,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -193,7 +229,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -207,7 +245,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                 }
@@ -231,7 +271,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -243,7 +285,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                         log(`An error occured while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                     })
                     .then(msg => {
-                        msg.delete({timeout:10000})
+                        msg.delete({
+                                timeout: 10000
+                            })
                             .catch(e => {});
                     });
                 var user = client.users.cache.get(ticket.author);
@@ -255,7 +299,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -294,7 +340,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -314,7 +362,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -330,7 +380,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`)
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -357,7 +409,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -370,7 +424,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                         log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                     })
                     .then(msg => {
-                        msg.delete({timeout:10000})
+                        msg.delete({
+                                timeout: 10000
+                            })
                             .catch(e => {});
                     });
                 var user = client.users.cache.get(ticket.author);
@@ -382,7 +438,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -406,7 +464,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -426,7 +486,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -442,7 +504,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -469,7 +533,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -482,7 +548,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                         log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                     })
                     .then(msg => {
-                        msg.delete({timeout:10000})
+                        msg.delete({
+                                timeout: 10000
+                            })
                             .catch(e => {});
                     });
                 var user = client.users.cache.get(ticket.author);
@@ -494,7 +562,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -539,11 +609,13 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                         log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                     })
                     .then(msg => {
-                        msg.delete({timeout:30000})
+                        msg.delete({
+                                timeout: 30000
+                            })
                             .catch(e => {});
                     });
                 break;
-    
+
             case languageconfig.ticketteamcommand.user.toLowerCase():
                 if (message.mentions.members.first()) {
                     var user = message.mentions.members.first().user.id;
@@ -559,7 +631,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                                 log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                             })
                             .then(msg => {
-                                msg.delete({timeout:10000})
+                                msg.delete({
+                                        timeout: 10000
+                                    })
                                     .catch(e => {});
                             });
                         return;
@@ -582,7 +656,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                             log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                         })
                         .then(msg => {
-                            msg.delete({timeout:10000})
+                            msg.delete({
+                                    timeout: 10000
+                                })
                                 .catch(e => {});
                         });
                     return;
@@ -606,7 +682,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                         log(`An error occurred while sending a message to ${message.channel.name}: ${e.stack}`, 1);
                     })
                     .then(msg => {
-                        msg.delete({timeout:30000})
+                        msg.delete({
+                                timeout: 30000
+                            })
                             .catch(e => {});
                     });
                 return;
@@ -622,7 +700,9 @@ module.exports = function (log, makeEmbed, language, config, languageconfig, cli
                         return;
                     })
                     .then(msg => {
-                        msg.delete({timeout:10000})
+                        msg.delete({
+                                timeout: 10000
+                            })
                             .catch(e => {});
                     });
                 return;
