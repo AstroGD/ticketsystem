@@ -10,7 +10,7 @@
   "author": "AstroGD | Lukas Weber (https://www.astrogd.eu)",
   "license": "AGPL-3.0",
   "dependencies": {
-    "discord.js": "^12.3.1",
+    "discord.js": "^12.4.0",
     "follow-redirects": "^1.13.0",
     "fs-extra": "^9.0.1"
   }
