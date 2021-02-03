@@ -1,3 +1,11 @@
+# Version 2.0.4
+#### Released on 03.02.2021
+
+## Dependency updates
+:arrow_up: Update discord.js to 12.5.1
+:arrow_up: Update follow-redirects to 1.13.2
+:arrow_up: Update fs-extra to 9.1.0
+
 # Version 2.0.3
 #### Released 01.10.2020 (DMY)
 
