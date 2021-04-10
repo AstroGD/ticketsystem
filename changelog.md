@@ -1,3 +1,13 @@
+# Version 2.0.5
+#### Released on 10.04.2021
+
+## Bugfixes
+:bug: Fixed a bug where the bot would crash if an invalid guild id was provided in the config
+
+## Dependency Updates
+:arrow_up: Update discord.js to 12.5.3
+:arrow_up: Update follow-redirects to 1.13.3
+
 # Version 2.0.4
 #### Released on 03.02.2021
 
