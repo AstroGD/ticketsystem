@@ -147,11 +147,8 @@ async function startup() {
             let guild = client.guilds.cache.get(config.server_id);
             if (!guild) {
                 log(`Guild not found. Please edit Config.json. Program will be terminated.`, 1);
-                client.destroy()
-                    .then(() => {
-                        process.exit();
-                    });
-                return;
+                client.destroy();
+                process.exit();
             }
 
             log(`Guild found. Listening to ${guild.name} (${guild.id}) - Loading commands`);
