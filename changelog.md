@@ -1,3 +1,9 @@
+# TBA
+#### Released on TBA
+
+## Updates
+:arrow_up: Update follow-redirects to 1.14.0
+
 # Version 2.0.5
 #### Released on 10.04.2021
 
